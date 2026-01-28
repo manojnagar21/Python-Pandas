@@ -15,7 +15,7 @@ print(series)
 index = ["int", "float", "string", "boolean", "list", "complex", "none"]
 series = pd.Series(data, index = index)
 print(series)
-
+print(series["int"])
 
 
 
@@ -23,4 +23,9 @@ series = pd.Series([1, 2, 3])
 print(series)
 
 series = pd.Series([1, 2, 3], dtype="f4")
+print(series)
+
+print(series[0])
+
+series = pd.Series({"id": 123, "name": "Rohan", "salary": 25000.00})
 print(series)
