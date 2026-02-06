@@ -37,22 +37,5 @@ print(result)
 result = df1.join(df2, how='right', lsuffix="_left", rsuffix="_right")
 print(result)
 
-
-
 result = df1.join(df2, how='outer', lsuffix="_left", rsuffix="_right")
-print(result)
-
-
-sales = pd.DataFrame({
-    'product_id': [101, 102, 103],
-    'qty': [3, 4, 2]
-})
-products = pd.DataFrame({
-    'pid': [101, 102, 104],
-    'price': [100, 200, 120]
-})
-
-print(sales)
-print(products)
-result = pd.merge(sales, products, left_on='product_id', right_on='pid', how='left')
 print(result)
