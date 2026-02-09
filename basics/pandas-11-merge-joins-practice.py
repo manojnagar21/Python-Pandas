@@ -86,3 +86,9 @@ print(final)
 df = [emp, dept, sal]
 result = reduce(lambda left, right: pd.merge(left, right, on="eid", how="left"), df)
 print(result)
+
+
+step = emp.merge(dept, on="eid", how="inner")
+print(step)
+final = step.merge(sal, on="eid", how="inner")
+print(final)
