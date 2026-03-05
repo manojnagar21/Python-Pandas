@@ -35,3 +35,27 @@ df2 = pd.DataFrame({
 print(df2)
 ct2 = pd.crosstab(df2['Team'], df2['Player'], values=df2['Score'], aggfunc='sum')
 print(ct2)
+
+
+sales = pd.DataFrame({
+    'Month': ['Jan','Jan','Feb','Feb','Feb'],
+    'Region': ['East','West','East','West','East'],
+    'Sales': [200,150,220,180,260]
+})
+print(sales)
+monthlySales = sales.groupby("Month")["Sales"].sum()
+print(monthlySales)
+monthlySales = sales.pivot_table(
+    index="Month",
+    columns="Region",
+    values="Sales",
+    aggfunc="sum"
+)
+
+print(monthlySales)
+
+countOrder = pd.crosstab(sales["Month"], sales["Region"])
+print(countOrder)
+
+countOrder = pd.crosstab(sales["Month"], sales["Region"], values=sales["Sales"], aggfunc="sum")
+print(countOrder)

@@ -92,3 +92,29 @@ step = emp.merge(dept, on="eid", how="inner")
 print(step)
 final = step.merge(sal, on="eid", how="inner")
 print(final)
+
+dfA = pd.DataFrame({
+    'id': [1,2,3],
+    'name': ['John','Alice','Bob']
+})
+
+dfB = pd.DataFrame({
+    'id': [1,2,4],
+    'salary': [50000, 55000, 60000]
+})
+
+dfC = pd.DataFrame({
+    'id': [1,3,4],
+    'department': ['HR','IT','Finance']
+})
+print(dfA)
+print(dfB)
+print(dfC)
+# Step 1: Merge A & B
+AB = dfA.merge(dfB, on='id', how='outer')
+# AB = pd.merge(dfA, dfB, on='id', how='outer')
+print(AB)
+# Step 2: Merge with C
+ABC = AB.merge(dfC, on='id', how='outer')
+
+print(ABC)
